@@ -4,23 +4,19 @@ import java.util.*;
 import java.nio.file.Files;
 public class Main {
     public static void main(String[] args) {
-        List<TVprogram> allPrograms = new ArrayList<>();
+        List<TVprogram> allPrograms = new ArrayList<>(); //пункт 5
         try {
-            Scanner s = new Scanner(new File("C:/Users/bulat/Downloads/Telegram Desktop/schedule.txt"));
-            List<String> list = new ArrayList<String>();
-            while (s.hasNext()){
-                list.add(s.next());
-            }
-            s.close();
 
+            //пункт 1
             List<String> testList = Files.readAllLines(new File("C:/Users/bulat/Downloads/Telegram Desktop/schedule.txt").toPath(), Charset.defaultCharset());
 
 
-            Map<Channel, List<TVprogram>> map = new HashMap<>();
+            Map<Channel, List<TVprogram>> map = new HashMap<>(); //пункт 4
             Channel channel = null;
             List<TVprogram> programList = new ArrayList<>();
             byte hour = 0;
             byte minutes = 0;
+            //обработка файла
             for(String str: testList) {
                 if (str.charAt(0) == '#') {
                     if(channel != null) {
@@ -70,10 +66,8 @@ public class Main {
                     program.channel = channel;
                     programList.add(program);
                     allPrograms.add(program);
-
-                } catch (StringIndexOutOfBoundsException e) {
-                    System.out.println();
                 }
+
             }
 
         } catch (FileNotFoundException e) {

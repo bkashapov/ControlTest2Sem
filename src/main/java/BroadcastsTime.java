@@ -1,4 +1,4 @@
-public class BroadcastsTime implements Comparable<BroadcastsTime>{
+public class BroadcastsTime implements Comparable<BroadcastsTime>{ //пункт 2
     public BroadcastsTime(byte hour, byte minutes) {
         this.hour = hour;
         this.minutes = minutes;
